@@ -1,6 +1,5 @@
 import React from 'react'
 import {StyleSheet, Text, SafeAreaView, Pressable} from 'react-native'
-import LargeButton from './components/LargeButton'
 
 const HomePage = ({ navigation }) => {
     const onPress = () => {

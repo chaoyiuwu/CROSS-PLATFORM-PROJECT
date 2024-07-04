@@ -1,6 +1,6 @@
 import React from 'react'
 import {StyleSheet, Text, SafeAreaView, View, TouchableOpacity, ImageBackground} from 'react-native'
-import data from './data/RecipeData.json'
+import data from '../data/RecipeData.json'
 
 let itemname1 = 'Whiskey Sour'
 let itemname2 = 'vodka martini'
