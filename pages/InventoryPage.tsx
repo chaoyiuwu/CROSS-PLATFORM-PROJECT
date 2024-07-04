@@ -71,7 +71,9 @@ const styles = StyleSheet.create({
     itemContainer: {
         width: '90%',
         height: 200, // Adjust height as needed
-        marginBottom: 10, // Adjust margin as needed
+        marginVertical: 5,
+        borderRadius: 10,
+        overflow: 'hidden',
     },
     backgroundImage: {
         flex: 1,
