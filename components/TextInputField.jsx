@@ -10,7 +10,7 @@ const TextInputField = ({ ...otherProps }) => {
             placeholderTextColor={"#626262"}
             style={[
                 {
-                    fontFamily: "poppins-regular",
+                    //fontFamily: "poppins-regular",
                     fontSize: 14,
                     padding: 20,
                     backgroundColor: "#f1f4ff",

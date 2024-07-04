@@ -1,5 +1,6 @@
 import React from 'react'
 import {StyleSheet, Text, SafeAreaView, View, TouchableOpacity, ImageBackground} from 'react-native'
+import data from './data/RecipeData.json'
 
 let itemname1 = 'Whiskey Sour'
 let itemname2 = 'vodka martini'
@@ -7,39 +8,45 @@ let itemname3 = 'mojito'
 let itemname4 = 'old-fashioned'
 
 const ListPage = ({navigation}) => {
+    const onPress = (item) => {
+        navigation.navigate('Detail', {name: item.name, url: item.imageURL, desc: item.description})
+    }
+
+    const list = data.cocktails
+    
     return(
         <SafeAreaView style={styles.wrapper}>
             <TouchableOpacity style={styles.itemBox}
-                onPress={() => navigation.navigate('Detail', {category: itemname1})}>
+                onPress={() => onPress(list.at(0))}>
                 <ImageBackground 
-                source={{uri:'https://images.pexels.com/photos/6542662/pexels-photo-6542662.jpeg'}}
+                source={{uri:list.at(0).imageURL}}
                 resizeMode='cover'
                 style={styles.image}>
                     <Text style={styles.text}>{itemname1}</Text>
                 </ImageBackground>          
             </TouchableOpacity>
             <TouchableOpacity style={styles.itemBox}
-            onPress={() => navigation.navigate('Detail', {category: itemname2})}>
+            onPress={() => onPress(list.at(1))}>
                 <ImageBackground 
-                source={{uri:'https://images.pexels.com/photos/4786625/pexels-photo-4786625.jpeg'}}
+                source={{uri:list.at(1).imageURL}}
                 resizeMode='cover'
                 style={styles.image}>
                     <Text style={styles.text}>{itemname2}</Text>
                 </ImageBackground>  
             </TouchableOpacity>
             <TouchableOpacity style={styles.itemBox}
-            onPress={() => navigation.navigate('Detail', {category: itemname3})}>
+            onPress={() => onPress(list.at(2))}>
             <ImageBackground 
-                source={{uri:'https://images.pexels.com/photos/4021983/pexels-photo-4021983.jpeg'}}
+                source={{uri: list.at(2).imageURL}}
                 resizeMode='cover'
                 style={styles.image}>
                     <Text style={styles.text}>{itemname3}</Text>
                 </ImageBackground>  
             </TouchableOpacity>
             <TouchableOpacity style={styles.itemBox}
-            onPress={() => navigation.navigate('Detail', {category: itemname4})}>
+            onPress={() => onPress(list.at(3))}>
                 <ImageBackground 
-                source={{uri:'https://images.pexels.com/photos/19252758/pexels-photo-19252758/free-photo-of-whiskey-with-ice-cubes-and-orange-peel-in-lowball-glass.jpeg'}}
+                source={{uri:list.at(3).imageURL}}
                 resizeMode='cover'
                 style={styles.image}>
                     <Text style={styles.text}>{itemname4}</Text>

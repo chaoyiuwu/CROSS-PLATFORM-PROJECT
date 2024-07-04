@@ -11,9 +11,9 @@ const TextButton = ({ buttonText, onButtonPress }) => {
         >
             <Text
                 style={{
-                    fontFamily: "poppins-semiBold",
+                    //fontFamily: "poppins-semiBold",
                     fontWeight: 500,
-                    color: "#000",
+                    color: "#9b6a5b",
                     textAlign: "center",
                     fontSize: 14,
                 }}

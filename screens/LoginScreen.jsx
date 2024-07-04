@@ -17,7 +17,7 @@ const LoginScreen = ({ navigation }) => {
             >
             {/* Login and Welcome Message */}
                 <PageHeader 
-                    title="Login Here"
+                    title="Login"
                     message="Welcome back you've been missed!"
                 />
 
@@ -35,10 +35,10 @@ const LoginScreen = ({ navigation }) => {
                 <View>
                     <Text
                         style={{
-                            fontFamily: "poppins-semiBold",
+                            //fontFamily: "poppins-semiBold",
                             fontWeight: 500,
                             fontSize: 14,
-                            color: "#1F41BB",
+                            color: "#000",
                             alignSelf: "flex-end",
                         }}
                     >
@@ -63,9 +63,9 @@ const LoginScreen = ({ navigation }) => {
                 >
                     <Text
                         style={{
-                            fontFamily: "poppins-semiBold",
+                            //fontFamily: "poppins-semiBold",
                             fontWeight: 500,
-                            color: "#1F41BB",
+                            color: "#000",
                             textAlign: "center",
                             fontSize: 14,
                         }}

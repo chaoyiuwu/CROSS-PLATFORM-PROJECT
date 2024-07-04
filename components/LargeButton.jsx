@@ -6,10 +6,10 @@ const LargeButton = ({ buttonText }) => {
         <TouchableOpacity
             style={{
                 padding: 20,
-                backgroundColor: "#1F41BB",
+                backgroundColor: "#613a2b",
                 marginVertical: 30,
                 borderRadius: 10,
-                shadowColor: "#1F41BB",
+                shadowColor: "#613a2b",
                 shadowOffset: {
                     width: 0,
                     height: 10,
@@ -20,7 +20,7 @@ const LargeButton = ({ buttonText }) => {
         >
             <Text
                 style={{
-                    fontFamily: "poppins-bold",
+                    //fontFamily: "poppins-bold",
                     fontWeight: 800,
                     color: "#fff",
                     textAlign: "center",

@@ -49,7 +49,7 @@ const RegisterScreen = ({ navigation }) => {
                 >
                     <Text
                         style={{
-                            fontFamily: "poppins-semiBold",
+                            //fontFamily: "poppins-semiBold",
                             fontWeight: 500,
                             color: "#1F41BB",
                             textAlign: "center",
