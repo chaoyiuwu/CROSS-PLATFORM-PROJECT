@@ -33,16 +33,14 @@ function HomeStackScreen() {
   )
 }
 
-const Inventory = createNativeStackNavigator()
+const InventoryStack = createNativeStackNavigator()
 function InventoryStackScreen() {
   return (
-    <HomeStack.Navigator>
-      <HomeStack.Screen name='Inventory' component={InventoryPage} />
-    </HomeStack.Navigator>
+    <InventoryStack.Navigator>
+      <InventoryStack.Screen name='Inventory' component={InventoryPage} />
+    </InventoryStack.Navigator>
   )
 }
-
-
 
 export default function App() {
   return (
@@ -57,7 +55,7 @@ export default function App() {
                 iconName = focused ? 'home' : 'home-outline';
                 break;
               case 'Inventory':
-                iconName = 'cube';
+                iconName = focused? 'cube' : 'cube-outline';
                 break;
               case 'Discovery':
                 iconName = focused ? 'grid' : 'grid-outline';

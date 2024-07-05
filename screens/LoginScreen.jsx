@@ -1,4 +1,4 @@
-import { SafeAreaView, StyleSheet, Text, View } from "react-native";
+import { SafeAreaView, ScrollView, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import TextInputField from "../components/TextInputField";
 import ServiceProviderButton from "../components/ServiceProviderButton";
@@ -9,6 +9,7 @@ import PageHeader from "../components/PageHeader";
 const LoginScreen = ({ navigation }) => {
     return ( 
         <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
+            <ScrollView>
             <View
                 style={{ 
                     padding: 20,
@@ -88,6 +89,7 @@ const LoginScreen = ({ navigation }) => {
                     </View>
                 </View>
             </View>
+            </ScrollView>
         </SafeAreaView>
     );
 };

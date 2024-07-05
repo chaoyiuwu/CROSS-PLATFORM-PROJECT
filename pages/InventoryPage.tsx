@@ -1,38 +1,39 @@
 import React from 'react'
 import { StyleSheet, Text, TouchableOpacity, ImageBackground, View, ScrollView } from 'react-native'
+import { SafeAreaView } from 'react-native-safe-area-context'
 
 const list = [
     {
-        name: 'Spirits',
-        image: 'https://npcddrdidmrwljkyxolk.supabase.co/storage/v1/object/public/Images/cocktails/Content.png',
+        name: 'Wine',
+        image: 'https://npcddrdidmrwljkyxolk.supabase.co/storage/v1/object/public/Images/inventory/wine.png',
     },
     {
         name: 'Liqueurs',
-        image: 'https://npcddrdidmrwljkyxolk.supabase.co/storage/v1/object/public/Images/cocktails/Content.png',
+        image: 'https://npcddrdidmrwljkyxolk.supabase.co/storage/v1/object/public/Images/inventory/liquor.png',
     },
     {
         name: 'Mixers',
-        image: 'https://npcddrdidmrwljkyxolk.supabase.co/storage/v1/object/public/Images/cocktails/Content.png',
+        image: 'https://npcddrdidmrwljkyxolk.supabase.co/storage/v1/object/public/Images/inventory/cocktail_and_shaker.jpg',
     },
     {
         name: 'Juices',
-        image: 'https://npcddrdidmrwljkyxolk.supabase.co/storage/v1/object/public/Images/cocktails/Content.png',
+        image: 'https://npcddrdidmrwljkyxolk.supabase.co/storage/v1/object/public/Images/inventory/juices.png',
     },
     {
         name: 'Syrups',
-        image: 'https://npcddrdidmrwljkyxolk.supabase.co/storage/v1/object/public/Images/cocktails/Content.png',
+        image: 'https://npcddrdidmrwljkyxolk.supabase.co/storage/v1/object/public/Images/inventory/syrup.png',
     },
     {
         name: 'Bitters',
-        image: 'https://npcddrdidmrwljkyxolk.supabase.co/storage/v1/object/public/Images/cocktails/Content.png',
+        image: 'https://npcddrdidmrwljkyxolk.supabase.co/storage/v1/object/public/Images/inventory/bitters.png',
     },
     {
         name: 'Herbs and Spices',
-        image: 'https://npcddrdidmrwljkyxolk.supabase.co/storage/v1/object/public/Images/cocktails/Content.png',
+        image: 'https://npcddrdidmrwljkyxolk.supabase.co/storage/v1/object/public/Images/inventory/herbsandspices.png',
     },
     {
         name: 'Others',
-        image: 'https://npcddrdidmrwljkyxolk.supabase.co/storage/v1/object/public/Images/cocktails/Content.png',
+        image: 'https://npcddrdidmrwljkyxolk.supabase.co/storage/v1/object/public/Images/inventory/tools.png',
     }
 ]
 
@@ -41,27 +42,37 @@ const InventoryPage = ({ navigation }) => {
         console.log('Item pressed!');
     }
     return (
-        <ScrollView contentContainerStyle={styles.scrollViewContent}>
-            <View style={styles.container}>
-                {
-                    list.map((item, index) => (
-                        <TouchableOpacity onPress={onPress} style={styles.itemContainer} key={item.name}>
-                            <ImageBackground source={{ uri: item.image }} style={styles.backgroundImage}>
-                                <View style={styles.textContainer}>
-                                    <Text style={styles.title}>{item.name}</Text>
-                                </View>
-                            </ImageBackground>
-                        </TouchableOpacity>
-                    ))
-                }
-            </View>
-        </ScrollView>
+        <SafeAreaView style={styles.wrapper}>
+            <ScrollView>
+                <View style={styles.container}>
+                    {
+                        list.map((item, index) => (
+                            <TouchableOpacity
+                            onPress={onPress}
+                            style={styles.itemContainer}
+                            key={item.name}>
+                                <ImageBackground
+                                source={{ uri: item.image }}
+                                 style={styles.backgroundStyle}
+                                 imageStyle= {styles.image}>
+                                    <View style={styles.textContainer}>
+                                        <Text style={styles.title}>{item.name}</Text>
+                                    </View>
+                                </ImageBackground>
+                            </TouchableOpacity>
+                        ))
+                    }
+                </View>
+            </ScrollView>
+        </SafeAreaView>
     )
 }
 
+const imageContainerHeight = 150
+
 const styles = StyleSheet.create({
-    scrollViewContent: {
-        flexGrow: 1,
+    wrapper: {
+        flex: 1,
     },
     container: {
         flex: 1,
@@ -70,15 +81,19 @@ const styles = StyleSheet.create({
     },
     itemContainer: {
         width: '90%',
-        height: 150, // Adjust height as needed
+        height: imageContainerHeight,
         marginVertical: 5,
-        borderRadius: 10,
+    },
+    backgroundStyle: {
+        width: '100%',
+        height: imageContainerHeight,
         overflow: 'hidden',
     },
-    backgroundImage: {
-        flex: 1,
+    image : {
         resizeMode: 'cover', // or 'contain'
-        justifyContent: 'center',
+        alignSelf:'flex-end',
+        height: 200,
+        top: undefined
     },
     textContainer: {
         backgroundColor: 'rgba(0,0,0,0.5)', // Semi-transparent background for text
