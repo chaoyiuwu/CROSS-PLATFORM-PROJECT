@@ -2,11 +2,6 @@ import React from 'react'
 import {StyleSheet, Text, SafeAreaView, View, TouchableOpacity, ImageBackground} from 'react-native'
 import data from '../data/RecipeData.json'
 
-let itemname1 = 'Whiskey Sour'
-let itemname2 = 'vodka martini'
-let itemname3 = 'mojito'
-let itemname4 = 'old-fashioned'
-
 const ListPage = ({navigation}) => {
     const onPress = (item) => {
         navigation.navigate('Detail', {name: item.name, url: item.imageURL, desc: item.description})
@@ -22,7 +17,7 @@ const ListPage = ({navigation}) => {
                 source={{uri:list.at(0).imageURL}}
                 resizeMode='cover'
                 style={styles.image}>
-                    <Text style={styles.text}>{itemname1}</Text>
+                    <Text style={styles.text}>{list.at(0).name}</Text>
                 </ImageBackground>          
             </TouchableOpacity>
             <TouchableOpacity style={styles.itemBox}
@@ -31,7 +26,7 @@ const ListPage = ({navigation}) => {
                 source={{uri:list.at(1).imageURL}}
                 resizeMode='cover'
                 style={styles.image}>
-                    <Text style={styles.text}>{itemname2}</Text>
+                    <Text style={styles.text}>{list.at(1).name}</Text>
                 </ImageBackground>  
             </TouchableOpacity>
             <TouchableOpacity style={styles.itemBox}
@@ -40,7 +35,7 @@ const ListPage = ({navigation}) => {
                 source={{uri: list.at(2).imageURL}}
                 resizeMode='cover'
                 style={styles.image}>
-                    <Text style={styles.text}>{itemname3}</Text>
+                    <Text style={styles.text}>{list.at(2).name}</Text>
                 </ImageBackground>  
             </TouchableOpacity>
             <TouchableOpacity style={styles.itemBox}
@@ -49,7 +44,7 @@ const ListPage = ({navigation}) => {
                 source={{uri:list.at(3).imageURL}}
                 resizeMode='cover'
                 style={styles.image}>
-                    <Text style={styles.text}>{itemname4}</Text>
+                    <Text style={styles.text}>{list.at(3).name}</Text>
                 </ImageBackground>  
             </TouchableOpacity>
         </SafeAreaView>

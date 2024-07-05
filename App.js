@@ -16,7 +16,7 @@ const ListStack = createNativeStackNavigator()
 function ListStackScreen() {
   return (
     <ListStack.Navigator>
-      <ListStack.Screen name='Cocktail Recipes' component={ListPage} />
+      <ListStack.Screen name='List' component={ListPage} options={{title: 'Cocktail Recipes'}} />
       <ListStack.Screen name='Detail' component={DetailPage} />
     </ListStack.Navigator>
   )
@@ -26,7 +26,7 @@ const HomeStack = createNativeStackNavigator()
 function HomeStackScreen() {
   return (
     <HomeStack.Navigator>
-      <HomeStack.Screen name='Your Home' component={HomePage} />
+      <HomeStack.Screen name='HomePage' component={HomePage} options={{title: 'Home'}}/>
       <HomeStack.Screen name='Login' component={LoginScreen} />
       <HomeStack.Screen name='Register' component={RegisterScreen} />
     </HomeStack.Navigator>
@@ -37,7 +37,7 @@ const InventoryStack = createNativeStackNavigator()
 function InventoryStackScreen() {
   return (
     <InventoryStack.Navigator>
-      <InventoryStack.Screen name='Inventory' component={InventoryPage} />
+      <InventoryStack.Screen name='Item Categories' component={InventoryPage} />
     </InventoryStack.Navigator>
   )
 }
