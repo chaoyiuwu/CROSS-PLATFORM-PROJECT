@@ -1,12 +1,13 @@
 import { SafeAreaView, ScrollView, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import TextInputField from "../components/TextInputField";
-import ServiceProviderButton from "../components/ServiceProviderButton";
 import LargeButton from "../components/LargeButton";
 import TextButton from "../components/TextButton";
 import PageHeader from "../components/PageHeader";
+import alert from '../alert'
 
-const LoginScreen = ({ navigation }) => {
+const LoginScreen = ({ route, navigation }) => {
+    const {email,password} = route.params
     return ( 
         <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
             <ScrollView>
@@ -19,7 +20,7 @@ const LoginScreen = ({ navigation }) => {
             {/* Login and Welcome Message */}
                 <PageHeader 
                     title="Login"
-                    message="Welcome back you've been missed!"
+                    //message="Welcome back you've been missed!"
                 />
 
                 {/* Email and Password Input Fields */}
@@ -28,8 +29,20 @@ const LoginScreen = ({ navigation }) => {
                         marginVertical: 30,
                     }}
                 >
-                    <TextInputField placeholder="Email" />
-                    <TextInputField placeholder="Password" secureTextEntry />
+                    <TextInputField placeholder="Email"  
+                                    onChangeText={newText => {
+                                        navigation.setParams({
+                                            email: newText
+                                        })
+                                    }}
+                                    defaultValue={email}/>
+                    <TextInputField placeholder="Password" secureTextEntry 
+                                    onChangeText={newText => {
+                                        navigation.setParams({
+                                            password: newText
+                                        })
+                                    }}
+                                    defaultValue={password}/>
                 </View>
 
                 {/* Forgot Password Message */}
@@ -48,46 +61,25 @@ const LoginScreen = ({ navigation }) => {
                 </View>
 
                 {/* Sign In Button */}
-                <LargeButton buttonText="Sign In" />
+                <LargeButton buttonText='Sign In'
+                
+                onButtonPress={()=> {
+                    if (email != "" && password != "") {
+                        navigation.reset({
+                            index: 0,
+                            routes: [{ name: 'LoggedIn'}],
+                        })
+                    }
+                    else {
+                        alert('please enter your credentials!')
+                    }
+                }}/>
 
                 {/* Create New Account Button */}
                 <TextButton 
                     buttonText="Create New Account" 
                     onButtonPress={() => navigation.navigate("Register")} 
                 />
-
-                {/* Other Service Account Providers Buttons */}
-                <View 
-                    style={{
-                        marginVertical: 30,
-                    }}
-                >
-                    <Text
-                        style={{
-                            //fontFamily: "poppins-semiBold",
-                            fontWeight: 500,
-                            color: "#000",
-                            textAlign: "center",
-                            fontSize: 14,
-                        }}
-                    >
-                        Or continue with
-                    </Text>
-                    <View
-                        style={{
-                            marginTop: 10,
-                            flexDirection: "row",
-                            justifyContent: "center"
-                        }}
-                    >
-                        {/* Google Service Account Provider Button*/}
-                        <ServiceProviderButton logoName="logo-google" />
-                        {/* Apple Service Account Provider Button*/}
-                        <ServiceProviderButton logoName="logo-apple" />
-                        {/* Facebook Service Account Provider Button*/}
-                        <ServiceProviderButton logoName="logo-facebook" />
-                    </View>
-                </View>
             </View>
             </ScrollView>
         </SafeAreaView>

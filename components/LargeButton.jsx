@@ -1,7 +1,8 @@
 import { StyleSheet, Text, TouchableOpacity } from "react-native";
 import React from "react";
 
-const LargeButton = ({ buttonText }) => {
+const LargeButton = ({ buttonText, onButtonPress,}) => {
+
     return (
         <TouchableOpacity
             style={{
@@ -17,6 +18,7 @@ const LargeButton = ({ buttonText }) => {
                 shadowOpacity: 0.3,
                 shadowRadius: 10,
             }}
+            onPress={onButtonPress}
         >
             <Text
                 style={{

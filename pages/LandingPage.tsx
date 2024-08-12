@@ -1,10 +1,9 @@
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import React from 'react'
 import {StyleSheet, Text, View, SafeAreaView, Pressable, Image} from 'react-native'
 
-const HomePage = ({ navigation }) => {
+const LandingPage = ({ navigation }) => {
     return(
-<SafeAreaView style={styles.wrapper}>
+        <SafeAreaView style={styles.wrapper}>
         <View style={styles.logoArea}>
             <Image
             style={styles.logo}
@@ -14,11 +13,27 @@ const HomePage = ({ navigation }) => {
             />
             <Text style={styles.logoText}>MixMate: Your Personal Mixing Assistant</Text>
         </View>
+        <View style={styles.buttonArea}>
+        <Pressable style={styles.button} onPress={() => {
+            navigation.navigate('Register')
+        }}>
+            <Text style={styles.buttonText}>Sign up</Text>
+        </Pressable>
+        <Pressable style={styles.button} onPress={()=> {
+            navigation.navigate('Login', {
+                    email: undefined,
+                    password: undefined
+            })
+        }}>
+            <Text style={styles.buttonText}>Log in</Text>
+        </Pressable>
+        </View>
     </SafeAreaView>
     )
 }
+
 const styles=StyleSheet.create({
-    wrapper:{
+    wrapper: {
         flex: 1,
         flexDirection: 'column',
         alignContent: 'center',
@@ -42,6 +57,23 @@ const styles=StyleSheet.create({
         marginHorizontal: 20,
         color: '#613a2b'
     },
+    buttonArea: {
+        flex: 0.5,
+        flexDirection: 'column',
+        alignItems: 'center',
+        //alignContent: 'center',
+        justifyContent:'space-evenly',
+    },
+    button: {
+        backgroundColor: '#cbb397',
+        paddingVertical: 10,
+        borderRadius: 8,
+        paddingHorizontal: 30,
+    },
+    buttonText: {
+        color: 'white',
+        fontSize: 20,
+    }
 })
 
-export default HomePage
+export default LandingPage
