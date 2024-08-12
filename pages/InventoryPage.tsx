@@ -5,35 +5,35 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 const list = [
     {
         name: 'Wine',
-        image: 'https://npcddrdidmrwljkyxolk.supabase.co/storage/v1/object/public/Images/inventory/wine.png',
+        image: 'https://npcddrdidmrwljkyxolk.supabase.co/storage/v1/object/public/Images/inventory/wine',
     },
     {
         name: 'Liqueurs',
-        image: 'https://npcddrdidmrwljkyxolk.supabase.co/storage/v1/object/public/Images/inventory/liquor.png',
+        image: 'https://npcddrdidmrwljkyxolk.supabase.co/storage/v1/object/public/Images/inventory/liqueur',
     },
     {
         name: 'Mixers',
-        image: 'https://npcddrdidmrwljkyxolk.supabase.co/storage/v1/object/public/Images/inventory/cocktail_and_shaker.jpg',
+        image: 'https://npcddrdidmrwljkyxolk.supabase.co/storage/v1/object/public/Images/inventory/mixer',
     },
     {
         name: 'Juices',
-        image: 'https://npcddrdidmrwljkyxolk.supabase.co/storage/v1/object/public/Images/inventory/juices.png',
+        image: 'https://npcddrdidmrwljkyxolk.supabase.co/storage/v1/object/public/Images/inventory/juice',
     },
     {
         name: 'Syrups',
-        image: 'https://npcddrdidmrwljkyxolk.supabase.co/storage/v1/object/public/Images/inventory/syrup.png',
+        image: 'https://npcddrdidmrwljkyxolk.supabase.co/storage/v1/object/public/Images/inventory/syrup',
     },
     {
         name: 'Bitters',
-        image: 'https://npcddrdidmrwljkyxolk.supabase.co/storage/v1/object/public/Images/inventory/bitters.png',
+        image: 'https://npcddrdidmrwljkyxolk.supabase.co/storage/v1/object/public/Images/inventory/bitters',
     },
     {
         name: 'Herbs and Spices',
-        image: 'https://npcddrdidmrwljkyxolk.supabase.co/storage/v1/object/public/Images/inventory/herbsandspices.png',
+        image: 'https://npcddrdidmrwljkyxolk.supabase.co/storage/v1/object/public/Images/inventory/herbsandspices',
     },
     {
         name: 'Others',
-        image: 'https://npcddrdidmrwljkyxolk.supabase.co/storage/v1/object/public/Images/inventory/tools.png',
+        image: 'https://npcddrdidmrwljkyxolk.supabase.co/storage/v1/object/public/Images/inventory/others',
     }
 ]
 
