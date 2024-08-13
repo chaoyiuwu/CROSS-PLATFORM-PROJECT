@@ -15,25 +15,13 @@ function MainStackScreen(){
         }}>
         <MainStack.Screen name='Landing' component={LandingPage} 
         options= {{
-            headerStyle: {
-                backgroundColor: '#613a2b'
-            },
-            headerTintColor: '#fff',
             headerTitleAlign: 'center'
         }}/>
         <MainStack.Screen name='Register' component={RegisterScreen}
         options= {{
-            headerStyle: {
-                backgroundColor: '#613a2b'
-            },
-            headerTintColor: '#fff'
         }}/>
         <MainStack.Screen name='Login' component={LoginScreen}
         options= {{
-            headerStyle: {
-                backgroundColor: '#613a2b'
-            },
-            headerTintColor: '#fff'
         }}/>
         <MainStack.Screen name='LoggedIn' component={LoggedInMainPage} options={{title: 'Home', headerShown: false}}/>
   </MainStack.Navigator>
