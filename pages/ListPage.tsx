@@ -54,18 +54,16 @@ const ListPage = ({navigation}) => {
 const styles=StyleSheet.create({
     wrapper: {
         flex : 1,
-        flexDirection: 'column',
-        //justifyContent: 'space-around',
-        //alignItems: 'center',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
         flexWrap: 'wrap'
     },
     itemBox: {
         backgroundColor: '#ededed',
-        width: '30%',
-        height: '30%',
+        width: '35%',
+        height: '35%',
         margin: 10,
-        // justifyContent: 'center',
-        // alignItems: 'center',
     },
     image: {
         flex:1,
