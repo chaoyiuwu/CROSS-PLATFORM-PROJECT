@@ -7,6 +7,9 @@ import TextButton from "../components/TextButton";
 import PageHeader from "../components/PageHeader";
 
 const RegisterScreen = ({ navigation }) => {
+    var email = ""
+    var password = ""
+    var confirmedPassword = ""
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
             <ScrollView>
@@ -24,26 +27,49 @@ const RegisterScreen = ({ navigation }) => {
 
                 {/* Email, Password, and Confirm Password Input Fields */}
                 <View
-                    style={{
-                        marginVertical: 30,
-                    }}
+                    style={{marginVertical: 30,}}
                 >
-                    <TextInputField placeholder="Email" />
-                    <TextInputField placeholder="Password" secureTextEntry />
-                    <TextInputField placeholder="Confirm Password" secureTextEntry />
+                    <TextInputField placeholder="Email"
+                        onChangeText={newText => email = newText} />
+                    <TextInputField placeholder="Password" secureTextEntry
+                        onChangeText={newText => password = newText}/>
+                    <TextInputField placeholder="Confirm Password" secureTextEntry
+                        onChangeText={newText => confirmedPassword = newText}/>
                 </View>
 
                 {/* Sign Up Button */}
-                <LargeButton buttonText="Sign Up" />
+                <LargeButton buttonText="Sign Up"
+                    onButtonPress={() => {
+                        if (email == "") {
+                            alert("please enter your email")
+                        }
+                        else if (password == "") {
+                            alert("please enter your password")
+                        }
+                        else if (password != confirmedPassword) {
+                            alert("passwords do not match")
+                        }
+                        else {
+                            navigation.navigate("Login", {
+                                    email: email,
+                                    password: password
+                                
+                            })
+                        }
+                    }}
+                />
 
                 {/* Already Have An Account Button */}
                 <TextButton 
-                    buttonText="Already Have An Account" 
-                    onButtonPress={() => navigation.navigate("Login")} 
+                    buttonText="Already Have An Account?" 
+                    onButtonPress={() => navigation.navigate("Login", {
+                            email: undefined,
+                            password: undefined              
+                    })} 
                 />
 
                 {/* Other Service Account Providers Buttons */}
-                <View 
+                {/* <View 
                     style={{
                         marginVertical: 30,
                     }}
@@ -67,13 +93,13 @@ const RegisterScreen = ({ navigation }) => {
                         }}
                     >
                         {/* Google Service Account Provider Button*/}
-                        <ServiceProviderButton logoName="logo-google" />
+                        {/* <ServiceProviderButton logoName="logo-google" /> */}
                         {/* Apple Service Account Provider Button*/}
-                        <ServiceProviderButton logoName="logo-apple" />
+                        {/* <ServiceProviderButton logoName="logo-apple" /> */}
                         {/* Facebook Service Account Provider Button*/}
-                        <ServiceProviderButton logoName="logo-facebook" />
-                    </View>
-                </View>
+                        {/* <ServiceProviderButton logoName="logo-facebook" /> */}
+                    {/* </View>
+                </View> */} 
             </View>
             </ScrollView>
         </SafeAreaView>
