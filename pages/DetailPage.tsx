@@ -36,7 +36,7 @@ const styles=StyleSheet.create({
         fontSize: 20,
         fontWeight: 'bold',
         textAlign:'center',
-        color: "#9b6a5b",
+        color: "#ff6347",
     },
     bodyText : {
         marginHorizontal: 40,

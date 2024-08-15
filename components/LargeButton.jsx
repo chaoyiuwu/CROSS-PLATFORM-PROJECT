@@ -7,10 +7,10 @@ const LargeButton = ({ buttonText, onButtonPress,}) => {
         <TouchableOpacity
             style={{
                 padding: 20,
-                backgroundColor: "#613a2b",
+                backgroundColor: "#ff6347",
                 marginVertical: 30,
                 borderRadius: 10,
-                shadowColor: "#613a2b",
+                shadowColor: "#ff6347",
                 shadowOffset: {
                     width: 0,
                     height: 10,

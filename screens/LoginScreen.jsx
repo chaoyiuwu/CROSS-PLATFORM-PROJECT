@@ -7,7 +7,8 @@ import PageHeader from "../components/PageHeader";
 import alert from '../alert'
 
 const LoginScreen = ({ route, navigation }) => {
-    const {email,password} = route.params
+    const {email, password} = route.params
+
     return ( 
         <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
             <ScrollView>
@@ -29,27 +30,31 @@ const LoginScreen = ({ route, navigation }) => {
                         marginVertical: 30,
                     }}
                 >
-                    <TextInputField placeholder="Email"  
-                                    onChangeText={newText => {
-                                        navigation.setParams({
-                                            email: newText
-                                        })
-                                    }}
-                                    defaultValue={email}/>
-                    <TextInputField placeholder="Password" secureTextEntry 
-                                    onChangeText={newText => {
-                                        navigation.setParams({
-                                            password: newText
-                                        })
-                                    }}
-                                    defaultValue={password}/>
+                    <TextInputField 
+                        placeholder="Email"  
+                        onChangeText={newText => {
+                            navigation.setParams({
+                                email: newText
+                            })
+                        }}
+                        defaultValue={email}
+                    />
+                    <TextInputField 
+                        placeholder="Password"
+                        secureTextEntry 
+                        onChangeText={newText => {
+                                navigation.setParams({
+                                password: newText
+                            })
+                        }}
+                        defaultValue={password}
+                    />
                 </View>
 
                 {/* Forgot Password Message */}
                 <View>
                     <Text
                         style={{
-                            //fontFamily: "poppins-semiBold",
                             fontWeight: 500,
                             fontSize: 14,
                             color: "#000",
@@ -61,20 +66,19 @@ const LoginScreen = ({ route, navigation }) => {
                 </View>
 
                 {/* Sign In Button */}
-                <LargeButton buttonText='Sign In'
-                
-                onButtonPress={()=> {
-                    if (email != "" && password != "") {
-                        navigation.reset({
-                            index: 0,
-                            routes: [{ name: 'LoggedIn'}],
-                        })
-                    }
-                    else {
-                        alert('please enter your credentials!')
-                    }
-                }}/>
-
+                <LargeButton 
+                    buttonText='Sign In'
+                    onButtonPress={()=> {
+                        if (email != "" && password != "") {
+                            navigation.reset({
+                                index: 0,
+                                routes: [{ name: 'LoggedIn'}],
+                            })
+                        }
+                        else {
+                            alert('please enter your credentials!')
+                        }
+                    }}/>
                 {/* Create New Account Button */}
                 <TextButton 
                     buttonText="Create New Account" 

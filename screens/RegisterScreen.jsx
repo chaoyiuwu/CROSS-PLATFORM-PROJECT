@@ -69,16 +69,15 @@ const RegisterScreen = ({ navigation }) => {
                 />
 
                 {/* Other Service Account Providers Buttons */}
-                {/* <View 
+                <View 
                     style={{
                         marginVertical: 30,
                     }}
                 >
                     <Text
                         style={{
-                            //fontFamily: "poppins-semiBold",
                             fontWeight: 500,
-                            color: "#1F41BB",
+                            color: "#ff6347",
                             textAlign: "center",
                             fontSize: 14,
                         }}
@@ -93,13 +92,13 @@ const RegisterScreen = ({ navigation }) => {
                         }}
                     >
                         {/* Google Service Account Provider Button*/}
-                        {/* <ServiceProviderButton logoName="logo-google" /> */}
+                        <ServiceProviderButton logoName="logo-google" />
                         {/* Apple Service Account Provider Button*/}
-                        {/* <ServiceProviderButton logoName="logo-apple" /> */}
+                        <ServiceProviderButton logoName="logo-apple" />
                         {/* Facebook Service Account Provider Button*/}
-                        {/* <ServiceProviderButton logoName="logo-facebook" /> */}
-                    {/* </View>
-                </View> */} 
+                        <ServiceProviderButton logoName="logo-facebook" />
+                    </View>
+                </View>
             </View>
             </ScrollView>
         </SafeAreaView>

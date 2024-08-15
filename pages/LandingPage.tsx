@@ -55,17 +55,16 @@ const styles=StyleSheet.create({
         textAlign: 'center',
         fontWeight: 'bold',
         marginHorizontal: 20,
-        color: '#613a2b'
+        color: '#ff6347'
     },
     buttonArea: {
         flex: 0.5,
         flexDirection: 'column',
         alignItems: 'center',
-        //alignContent: 'center',
         justifyContent:'space-evenly',
     },
     button: {
-        backgroundColor: '#cbb397',
+        backgroundColor: '#ff6347',
         paddingVertical: 10,
         borderRadius: 8,
         paddingHorizontal: 30,
