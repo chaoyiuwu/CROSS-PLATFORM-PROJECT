@@ -5,7 +5,7 @@ const DetailPage = ({ route }) => {
     return (
         <SafeAreaView style={styles.wrapper}>
             <ScrollView contentContainerStyle={styles.scrollContent}>
-                <Image 
+                <Image
                     style={styles.image}
                     source={{ uri: route.params.url }}
                 />

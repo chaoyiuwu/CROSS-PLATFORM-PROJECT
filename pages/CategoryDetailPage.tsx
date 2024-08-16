@@ -55,7 +55,7 @@ const CategoryDetailPage = ({ route }) => {
                             <Text style={styles.itemText}>{item}</Text>
                         </View>
                     )}
-                    showsVerticalScrollIndicator={false}  // Hide scroll indicator for cleaner UI
+                    showsVerticalScrollIndicator={false}
                 />
             </View>
         </SafeAreaView>
