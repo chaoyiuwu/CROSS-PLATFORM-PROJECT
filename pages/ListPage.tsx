@@ -1,59 +1,59 @@
 import React from 'react'
-import {StyleSheet, Text, SafeAreaView, View, TouchableOpacity, ImageBackground} from 'react-native'
+import { StyleSheet, Text, SafeAreaView, View, TouchableOpacity, ImageBackground } from 'react-native'
 import data from '../data/RecipeData.json'
 
-const ListPage = ({navigation}) => {
+const ListPage = ({ navigation }) => {
     const onPress = (item) => {
-        navigation.navigate('Detail', {name: item.name, url: item.imageURL, desc: item.description})
+        navigation.navigate('CategoryDetail', { name: item.name, url: item.imageURL, desc: item.description })
     }
 
     const list = data.cocktails
-    
-    return(
+
+    return (
         <SafeAreaView style={styles.wrapper}>
             <TouchableOpacity style={styles.itemBox}
                 onPress={() => onPress(list.at(0))}>
-                <ImageBackground 
-                source={{uri:list.at(0).imageURL}}
-                resizeMode='cover'
-                style={styles.image}>
+                <ImageBackground
+                    source={{ uri: list.at(0).imageURL }}
+                    resizeMode='cover'
+                    style={styles.image}>
                     <Text style={styles.text}>{list.at(0).name}</Text>
-                </ImageBackground>          
+                </ImageBackground>
             </TouchableOpacity>
             <TouchableOpacity style={styles.itemBox}
-            onPress={() => onPress(list.at(1))}>
-                <ImageBackground 
-                source={{uri:list.at(1).imageURL}}
-                resizeMode='cover'
-                style={styles.image}>
+                onPress={() => onPress(list.at(1))}>
+                <ImageBackground
+                    source={{ uri: list.at(1).imageURL }}
+                    resizeMode='cover'
+                    style={styles.image}>
                     <Text style={styles.text}>{list.at(1).name}</Text>
-                </ImageBackground>  
+                </ImageBackground>
             </TouchableOpacity>
             <TouchableOpacity style={styles.itemBox}
-            onPress={() => onPress(list.at(2))}>
-            <ImageBackground 
-                source={{uri: list.at(2).imageURL}}
-                resizeMode='cover'
-                style={styles.image}>
+                onPress={() => onPress(list.at(2))}>
+                <ImageBackground
+                    source={{ uri: list.at(2).imageURL }}
+                    resizeMode='cover'
+                    style={styles.image}>
                     <Text style={styles.text}>{list.at(2).name}</Text>
-                </ImageBackground>  
+                </ImageBackground>
             </TouchableOpacity>
             <TouchableOpacity style={styles.itemBox}
-            onPress={() => onPress(list.at(3))}>
-                <ImageBackground 
-                source={{uri:list.at(3).imageURL}}
-                resizeMode='cover'
-                style={styles.image}>
+                onPress={() => onPress(list.at(3))}>
+                <ImageBackground
+                    source={{ uri: list.at(3).imageURL }}
+                    resizeMode='cover'
+                    style={styles.image}>
                     <Text style={styles.text}>{list.at(3).name}</Text>
-                </ImageBackground>  
+                </ImageBackground>
             </TouchableOpacity>
         </SafeAreaView>
     )
 }
 
-const styles=StyleSheet.create({
+const styles = StyleSheet.create({
     wrapper: {
-        flex : 1,
+        flex: 1,
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
@@ -66,10 +66,10 @@ const styles=StyleSheet.create({
         margin: 10,
     },
     image: {
-        flex:1,
+        flex: 1,
         justifyContent: 'center'
     },
-    text:{
+    text: {
         color: '#fff',
         fontSize: 15,
         textAlign: 'center',

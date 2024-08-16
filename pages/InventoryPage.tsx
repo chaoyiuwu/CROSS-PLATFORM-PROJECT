@@ -2,7 +2,7 @@ import React from 'react'
 import { StyleSheet, Text, TouchableOpacity, ImageBackground, View, ScrollView } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 
-const list = [
+const categoriesList = [
     {
         name: 'Wine',
         image: 'https://npcddrdidmrwljkyxolk.supabase.co/storage/v1/object/public/Images/inventory/wine',
@@ -38,30 +38,31 @@ const list = [
 ]
 
 const InventoryPage = ({ navigation }) => {
-    const onPress = () => {
-        console.log('Item pressed!');
-    }
+    const onPress = (category) => {
+        navigation.navigate('CategoryDetail', { category });
+    };
+
     return (
         <SafeAreaView style={styles.wrapper}>
             <ScrollView>
                 <View style={styles.container}>
-                    {
-                        list.map((item, index) => (
-                            <TouchableOpacity
-                            onPress={onPress}
+                    {categoriesList.map((item) => (
+                        <TouchableOpacity
+                            onPress={() => onPress(item)}
                             style={styles.itemContainer}
-                            key={item.name}>
-                                <ImageBackground
+                            key={item.name}
+                        >
+                            <ImageBackground
                                 source={{ uri: item.image }}
-                                 style={styles.backgroundStyle}
-                                 imageStyle= {styles.image}>
-                                    <View style={styles.textContainer}>
-                                        <Text style={styles.title}>{item.name}</Text>
-                                    </View>
-                                </ImageBackground>
-                            </TouchableOpacity>
-                        ))
-                    }
+                                style={styles.backgroundStyle}
+                                imageStyle={styles.image}
+                            >
+                                <View style={styles.textContainer}>
+                                    <Text style={styles.title}>{item.name}</Text>
+                                </View>
+                            </ImageBackground>
+                        </TouchableOpacity>
+                    ))}
                 </View>
             </ScrollView>
         </SafeAreaView>
@@ -89,9 +90,9 @@ const styles = StyleSheet.create({
         height: imageContainerHeight,
         overflow: 'hidden',
     },
-    image : {
+    image: {
         resizeMode: 'cover', // or 'contain'
-        alignSelf:'flex-end',
+        alignSelf: 'flex-end',
         height: 200,
         top: undefined
     },

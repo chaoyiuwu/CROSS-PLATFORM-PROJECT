@@ -6,6 +6,7 @@ import HomePage from "../pages/HomePage";
 import ListPage from "../pages/ListPage";
 import InventoryPage from "../pages/InventoryPage";
 import DetailPage from "../pages/DetailPage";
+import CategoryDetailPage from "../pages/CategoryDetailPage";
 
 const Tab = createBottomTabNavigator()
 
@@ -24,7 +25,8 @@ const InventoryStack = createNativeStackNavigator()
 function InventoryStackScreen() {
   return (
     <InventoryStack.Navigator>
-      <InventoryStack.Screen name='Item Categories' component={InventoryPage} />
+      <InventoryStack.Screen name='Categories' component={InventoryPage} />
+      <InventoryStack.Screen name='CategoryDetail' component={CategoryDetailPage} />
     </InventoryStack.Navigator>
   )
 }
