@@ -4,7 +4,7 @@ import data from '../data/RecipeData.json'
 
 const ListPage = ({ navigation }) => {
     const onPress = (item) => {
-        navigation.navigate('CategoryDetail', { name: item.name, url: item.imageURL, desc: item.description })
+        navigation.navigate('Detail', { name: item.name, url: item.imageURL, desc: item.description, steps: item.steps })
     }
 
     const list = data.cocktails
