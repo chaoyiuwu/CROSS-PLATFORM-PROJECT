@@ -1,99 +1,90 @@
+import React, { useState } from "react";
 import { SafeAreaView, ScrollView, StyleSheet, Text, View } from "react-native";
-import React from "react";
 import TextInputField from "../components/TextInputField";
-import ServiceProviderButton from "../components/ServiceProviderButton";
 import LargeButton from "../components/LargeButton";
 import TextButton from "../components/TextButton";
 import PageHeader from "../components/PageHeader";
+import alert from '../alert'
 
-const LoginScreen = ({ navigation }) => {
-    return ( 
-        <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
-            <ScrollView>
-            <View
-                style={{ 
-                    padding: 20,
-                    justifyContent: 'center',
-                }}
-            >
-            {/* Login and Welcome Message */}
-                <PageHeader 
+const LoginScreen = ({ route, navigation }) => {
+    const { email: initialEmail, password: initialPassword } = route.params || {};
+    const [email, setEmail] = useState(initialEmail || "");
+    const [password, setPassword] = useState(initialPassword || "");
+
+    const handleSignIn = () => {
+        if (email && password) {
+            navigation.reset({
+                index: 0,
+                routes: [{ name: 'LoggedIn' }],
+            });
+        } else {
+            alert('Please enter your credentials!');
+        }
+    };
+
+    return (
+        <SafeAreaView style={styles.wrapper}>
+            <ScrollView contentContainerStyle={styles.container}>
+                <PageHeader
                     title="Login"
-                    message="Welcome back you've been missed!"
+                // message="Welcome back, you've been missed!"
                 />
 
-                {/* Email and Password Input Fields */}
-                <View
-                    style={{
-                        marginVertical: 30,
-                    }}
-                >
-                    <TextInputField placeholder="Email" />
-                    <TextInputField placeholder="Password" secureTextEntry />
+                <View style={styles.inputContainer}>
+                    <TextInputField
+                        placeholder="Email"
+                        onChangeText={setEmail}
+                        value={email}
+                    />
+                    <TextInputField
+                        placeholder="Password"
+                        secureTextEntry
+                        onChangeText={setPassword}
+                        value={password}
+                    />
                 </View>
 
-                {/* Forgot Password Message */}
-                <View>
-                    <Text
-                        style={{
-                            //fontFamily: "poppins-semiBold",
-                            fontWeight: 500,
-                            fontSize: 14,
-                            color: "#000",
-                            alignSelf: "flex-end",
-                        }}
-                    >
+                <View style={styles.forgotPasswordContainer}>
+                    <Text style={styles.forgotPasswordText}>
                         Forgot Your Password?
                     </Text>
                 </View>
 
-                {/* Sign In Button */}
-                <LargeButton buttonText="Sign In" />
-
-                {/* Create New Account Button */}
-                <TextButton 
-                    buttonText="Create New Account" 
-                    onButtonPress={() => navigation.navigate("Register")} 
+                <LargeButton
+                    buttonText="Sign In"
+                    onButtonPress={handleSignIn}
                 />
 
-                {/* Other Service Account Providers Buttons */}
-                <View 
-                    style={{
-                        marginVertical: 30,
-                    }}
-                >
-                    <Text
-                        style={{
-                            //fontFamily: "poppins-semiBold",
-                            fontWeight: 500,
-                            color: "#000",
-                            textAlign: "center",
-                            fontSize: 14,
-                        }}
-                    >
-                        Or continue with
-                    </Text>
-                    <View
-                        style={{
-                            marginTop: 10,
-                            flexDirection: "row",
-                            justifyContent: "center"
-                        }}
-                    >
-                        {/* Google Service Account Provider Button*/}
-                        <ServiceProviderButton logoName="logo-google" />
-                        {/* Apple Service Account Provider Button*/}
-                        <ServiceProviderButton logoName="logo-apple" />
-                        {/* Facebook Service Account Provider Button*/}
-                        <ServiceProviderButton logoName="logo-facebook" />
-                    </View>
-                </View>
-            </View>
+                <TextButton
+                    buttonText="Create New Account"
+                    onButtonPress={() => navigation.navigate("Register")}
+                />
             </ScrollView>
         </SafeAreaView>
     );
 };
 
-export default LoginScreen;
+const styles = StyleSheet.create({
+    wrapper: {
+        flex: 1,
+        backgroundColor: '#fff',
+    },
+    container: {
+        padding: 20,
+        justifyContent: 'center',
+    },
+    inputContainer: {
+        marginVertical: 30,
+    },
+    forgotPasswordContainer: {
+        alignItems: 'flex-end',
+        marginVertical: 20,
+    },
+    forgotPasswordText: {
+        fontWeight: '500',
+        fontSize: 14,
+        color: "#000",
+    },
+});
 
-const styles = StyleSheet.create({});
+export default LoginScreen;

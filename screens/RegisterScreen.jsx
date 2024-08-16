@@ -1,5 +1,5 @@
+import React, { useState } from "react";
 import { SafeAreaView, ScrollView, StyleSheet, Text, View } from "react-native";
-import React from "react";
 import TextInputField from "../components/TextInputField";
 import ServiceProviderButton from "../components/ServiceProviderButton";
 import LargeButton from "../components/LargeButton";
@@ -7,79 +7,106 @@ import TextButton from "../components/TextButton";
 import PageHeader from "../components/PageHeader";
 
 const RegisterScreen = ({ navigation }) => {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [confirmedPassword, setConfirmedPassword] = useState("");
+
+    const handleSignUp = () => {
+        if (email === "") {
+            alert("Please enter your email");
+        } else if (password === "") {
+            alert("Please enter your password");
+        } else if (password !== confirmedPassword) {
+            alert("Passwords do not match");
+        } else {
+            navigation.navigate("Login", {
+                email,
+                password
+            });
+        }
+    };
+
     return (
-        <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
-            <ScrollView>
-            <View
-                style={{ 
-                    padding: 20,
-                    justifyContent: 'center',
-                }}
-            >
-            {/* Create An Account and Welcome Message */} 
-                <PageHeader 
+        <SafeAreaView style={styles.wrapper}>
+            <ScrollView contentContainerStyle={styles.container}>
+                <PageHeader
                     title="Create An Account"
                     message="Join today and become a member!"
                 />
 
-                {/* Email, Password, and Confirm Password Input Fields */}
-                <View
-                    style={{
-                        marginVertical: 30,
-                    }}
-                >
-                    <TextInputField placeholder="Email" />
-                    <TextInputField placeholder="Password" secureTextEntry />
-                    <TextInputField placeholder="Confirm Password" secureTextEntry />
+                <View style={styles.inputContainer}>
+                    <TextInputField
+                        placeholder="Email"
+                        onChangeText={setEmail}
+                        value={email}
+                    />
+                    <TextInputField
+                        placeholder="Password"
+                        secureTextEntry
+                        onChangeText={setPassword}
+                        value={password}
+                    />
+                    <TextInputField
+                        placeholder="Confirm Password"
+                        secureTextEntry
+                        onChangeText={setConfirmedPassword}
+                        value={confirmedPassword}
+                    />
                 </View>
 
-                {/* Sign Up Button */}
-                <LargeButton buttonText="Sign Up" />
-
-                {/* Already Have An Account Button */}
-                <TextButton 
-                    buttonText="Already Have An Account" 
-                    onButtonPress={() => navigation.navigate("Login")} 
+                <LargeButton
+                    buttonText="Sign Up"
+                    onButtonPress={handleSignUp}
                 />
 
-                {/* Other Service Account Providers Buttons */}
-                <View 
-                    style={{
-                        marginVertical: 30,
-                    }}
-                >
-                    <Text
-                        style={{
-                            //fontFamily: "poppins-semiBold",
-                            fontWeight: 500,
-                            color: "#1F41BB",
-                            textAlign: "center",
-                            fontSize: 14,
-                        }}
-                    >
-                        Or continue with
-                    </Text>
-                    <View
-                        style={{
-                            marginTop: 10,
-                            flexDirection: "row",
-                            justifyContent: "center"
-                        }}
-                    >
-                        {/* Google Service Account Provider Button*/}
+                <TextButton
+                    buttonText="Already Have An Account?"
+                    onButtonPress={() => navigation.navigate("Login", {
+                        email: undefined,
+                        password: undefined
+                    })}
+                />
+
+                <View style={styles.providerContainer}>
+                    <Text style={styles.orText}>Or continue with</Text>
+                    <View style={styles.providerButtons}>
                         <ServiceProviderButton logoName="logo-google" />
-                        {/* Apple Service Account Provider Button*/}
                         <ServiceProviderButton logoName="logo-apple" />
-                        {/* Facebook Service Account Provider Button*/}
                         <ServiceProviderButton logoName="logo-facebook" />
                     </View>
                 </View>
-            </View>
             </ScrollView>
         </SafeAreaView>
     );
 };
 
-export default RegisterScreen;
+const styles = StyleSheet.create({
+    wrapper: {
+        flex: 1,
+        backgroundColor: '#fff',
+    },
+    container: {
+        padding: 20,
+        justifyContent: 'center',
+    },
+    inputContainer: {
+        marginVertical: 30,
+    },
+    providerContainer: {
+        marginVertical: 30,
+        alignItems: 'center',
+    },
+    orText: {
+        fontWeight: '500',
+        color: "#ff6347",
+        textAlign: "center",
+        fontSize: 14,
+        marginBottom: 10,
+    },
+    providerButtons: {
+        flexDirection: "row",
+        justifyContent: "center",
+    },
+});
 
-const styles = StyleSheet.create({});
+export default RegisterScreen;

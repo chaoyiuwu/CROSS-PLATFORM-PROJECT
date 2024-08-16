@@ -7,8 +7,7 @@ const PageHeader = ({ title, message }) => {
             <Text
                 style={{ 
                     fontSize: 30,
-                    color: "#613a2b",
-                    //fontFamily: "poppins-bold",
+                    color: "#ff6347",
                     fontWeight: 800,
                     marginVertical: 30,
                     textAlign: "center",
@@ -18,8 +17,8 @@ const PageHeader = ({ title, message }) => {
             </Text>
             <Text
                 style={{ 
-                    //fontFamily: "poppins-semiBold",
                     fontWeight: 500,
+                    color: "#ff6347",
                     fontSize: 20,
                     textAlign: "center",
                 }}

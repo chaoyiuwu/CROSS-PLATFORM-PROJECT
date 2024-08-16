@@ -1,83 +1,73 @@
-import React from 'react'
-import {StyleSheet, Text, SafeAreaView, View, TouchableOpacity, ImageBackground} from 'react-native'
-import data from '../data/RecipeData.json'
+import React from 'react';
+import { StyleSheet, Text, SafeAreaView, View, TouchableOpacity, ImageBackground, FlatList } from 'react-native';
+import data from '../data/RecipeData.json';
 
-const ListPage = ({navigation}) => {
+const ListPage = ({ navigation }) => {
     const onPress = (item) => {
-        navigation.navigate('Detail', {name: item.name, url: item.imageURL, desc: item.description})
-    }
+        navigation.navigate('Detail', { name: item.name, url: item.imageURL, desc: item.description, steps: item.steps });
+    };
 
-    const list = data.cocktails
-    
-    return(
+    const renderItem = ({ item }) => (
+        <TouchableOpacity style={styles.itemBox} onPress={() => onPress(item)}>
+            <ImageBackground source={{ uri: item.imageURL }} resizeMode='cover' style={styles.image}>
+                <View style={styles.overlay}>
+                    <Text style={styles.text}>{item.name}</Text>
+                </View>
+            </ImageBackground>
+        </TouchableOpacity>
+    );
+
+    return (
         <SafeAreaView style={styles.wrapper}>
-            <TouchableOpacity style={styles.itemBox}
-                onPress={() => onPress(list.at(0))}>
-                <ImageBackground 
-                source={{uri:list.at(0).imageURL}}
-                resizeMode='cover'
-                style={styles.image}>
-                    <Text style={styles.text}>{list.at(0).name}</Text>
-                </ImageBackground>          
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.itemBox}
-            onPress={() => onPress(list.at(1))}>
-                <ImageBackground 
-                source={{uri:list.at(1).imageURL}}
-                resizeMode='cover'
-                style={styles.image}>
-                    <Text style={styles.text}>{list.at(1).name}</Text>
-                </ImageBackground>  
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.itemBox}
-            onPress={() => onPress(list.at(2))}>
-            <ImageBackground 
-                source={{uri: list.at(2).imageURL}}
-                resizeMode='cover'
-                style={styles.image}>
-                    <Text style={styles.text}>{list.at(2).name}</Text>
-                </ImageBackground>  
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.itemBox}
-            onPress={() => onPress(list.at(3))}>
-                <ImageBackground 
-                source={{uri:list.at(3).imageURL}}
-                resizeMode='cover'
-                style={styles.image}>
-                    <Text style={styles.text}>{list.at(3).name}</Text>
-                </ImageBackground>  
-            </TouchableOpacity>
+            <FlatList
+                data={data.cocktails}
+                renderItem={renderItem}
+                keyExtractor={(item) => item.name}
+                numColumns={2}
+                contentContainerStyle={styles.listContent}
+                columnWrapperStyle={styles.columnWrapper}
+            />
         </SafeAreaView>
-    )
-}
+    );
+};
 
-const styles=StyleSheet.create({
+const styles = StyleSheet.create({
     wrapper: {
-        flex : 1,
-        flexDirection: 'column',
-        //justifyContent: 'space-around',
-        //alignItems: 'center',
-        flexWrap: 'wrap'
+        flex: 1,
+        backgroundColor: '#f7f7f7',
+    },
+    listContent: {
+        paddingHorizontal: 10,
+        paddingVertical: 20,
+    },
+    columnWrapper: {
+        justifyContent: 'space-between',
     },
     itemBox: {
         backgroundColor: '#ededed',
-        width: '30%',
-        height: '30%',
-        margin: 10,
-        // justifyContent: 'center',
-        // alignItems: 'center',
+        width: '48%',
+        height: 200,
+        marginBottom: 15,
+        borderRadius: 10,
+        overflow: 'hidden',
     },
     image: {
-        flex:1,
-        justifyContent: 'center'
+        flex: 1,
+        justifyContent: 'center',
     },
-    text:{
+    overlay: {
+        backgroundColor: 'rgba(0, 0, 0, 0.5)',
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    text: {
         color: '#fff',
-        fontSize: 15,
+        fontSize: 18,
+        fontWeight: 'bold',
         textAlign: 'center',
-        backgroundColor: '#000000c0',
-    }
-})
+        paddingHorizontal: 10,
+    },
+});
 
-
-export default ListPage
+export default ListPage;

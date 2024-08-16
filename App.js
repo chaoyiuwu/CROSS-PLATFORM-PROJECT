@@ -1,82 +1,55 @@
-import React from 'react'
-import { NavigationContainer } from '@react-navigation/native'
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import Ionicons from '@expo/vector-icons/Ionicons'
-import InventoryPage from './pages/InventoryPage'
-import HomePage from './pages/HomePage'
-import ListPage from './pages/ListPage'
-import DetailPage from './pages/DetailPage'
-import LoginScreen from './screens/LoginScreen'
-import RegisterScreen from './screens/RegisterScreen'
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import LoginScreen from './screens/LoginScreen';
+import RegisterScreen from './screens/RegisterScreen';
+import LandingPage from './pages/LandingPage';
+import LoggedInMainPage from './screens/LoggedInMainPage';
 
-const Tab = createBottomTabNavigator()
+const MainStack = createNativeStackNavigator();
 
-const ListStack = createNativeStackNavigator()
-function ListStackScreen() {
+function MainStackScreen() {
   return (
-    <ListStack.Navigator>
-      <ListStack.Screen name='List' component={ListPage} options={{title: 'Cocktail Recipes'}} />
-      <ListStack.Screen name='Detail' component={DetailPage} />
-    </ListStack.Navigator>
-  )
-}
-
-const HomeStack = createNativeStackNavigator()
-function HomeStackScreen() {
-  return (
-    <HomeStack.Navigator>
-      <HomeStack.Screen name='HomePage' component={HomePage} options={{title: 'Home'}}/>
-      <HomeStack.Screen name='Login' component={LoginScreen} />
-      <HomeStack.Screen name='Register' component={RegisterScreen} />
-    </HomeStack.Navigator>
-  )
-}
-
-const InventoryStack = createNativeStackNavigator()
-function InventoryStackScreen() {
-  return (
-    <InventoryStack.Navigator>
-      <InventoryStack.Screen name='Item Categories' component={InventoryPage} />
-    </InventoryStack.Navigator>
-  )
+    <MainStack.Navigator initialRouteName="Landing">
+      <MainStack.Screen
+        name="Landing"
+        component={LandingPage}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <MainStack.Screen
+        name="Register"
+        component={RegisterScreen}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <MainStack.Screen
+        name="Login"
+        component={LoginScreen}
+        options={{
+          headerLeft: () => null, // Removes the back button
+          gestureEnabled: false, // Disables the swipe back gesture
+          headerShown: false,
+        }}
+      />
+      <MainStack.Screen
+        name="LoggedIn"
+        component={LoggedInMainPage}
+        options={{
+          title: 'Home',
+          headerShown: false,
+        }}
+      />
+    </MainStack.Navigator>
+  );
 }
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Tab.Navigator
-        screenOptions={({ route }) => ({
-          tabBarIcon: ({ focused, color, size }) => {
-            let iconName;
-
-            switch (route.name) {
-              case 'Home':
-                iconName = focused ? 'home' : 'home-outline';
-                break;
-              case 'Inventory':
-                iconName = focused? 'cube' : 'cube-outline';
-                break;
-              case 'Discovery':
-                iconName = focused ? 'grid' : 'grid-outline';
-                break;
-              default:
-                iconName = focused ? 'square' : 'square-outline';
-                break;
-            }
-
-            // return any component here
-            return <Ionicons name={iconName} size={size} color={color} />;
-          },
-          tabBarActiveTintColor: 'tomato',
-          tabBarInactiveTintColor: 'gray',
-          headerShown: false,
-        })}
-      >
-        <Tab.Screen name="Home" component={HomeStackScreen} />
-        <Tab.Screen name="Inventory" component={InventoryStackScreen} />
-        <Tab.Screen name="Discovery" component={ListStackScreen} />
-      </Tab.Navigator>
+      <MainStackScreen />
     </NavigationContainer>
   );
 }

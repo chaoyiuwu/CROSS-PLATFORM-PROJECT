@@ -1,22 +1,52 @@
 {
-    "cocktails": [{
-    "name" : "Whiskey Sour",
-    "imageURL": "https://images.pexels.com/photos/6542662/pexels-photo-6542662.jpeg",
-    "description":"Spirit, citrus and sugar are the trinity that combine to form the classic sour, one of the oldest types of cocktails. One of the most popular members of this group, the Whiskey Sour, has sated thirsty drinkers for more than one and a half centuries. It’s unknown exactly when the cocktail was conceived (or who was the architect), but its history stretches back to at least the administration of Abraham Lincoln, and the first printed recipe appeared circa 1862 in Jerry Thomas's famed book The Bar-Tenders Guide. (from Liquor.com)"
-},
-{
-    "name" : "Vodka Martini",
-    "imageURL": "https://images.pexels.com/photos/4786625/pexels-photo-4786625.jpeg",
-    "description":"Though cocktail purists may insist that gin is the only proper way to make a Martini, the Vodka Martini’s enduring popularity shows that not all agree. While gin will open added dimensions of aroma and flavor to create a more complex cocktail profile, using vodka as the base spirit will create a cleaner drink that allows the subtler notes of vermouth to more effortlessly come through. There’s no definitive origin story to who first popularized swapping gin for vodka in a classic Martini—the list of claims is too long to be worth going into detail—but the practice grew in the mid-20th century as efforts increased to grow vodka’s acceptance in the U.S. market. The spirit was often described to unfamiliar consumers as “white whiskey” or “flavorless gin,” and found an audience in those seeking cocktails with lighter profiles. (from Liquor.com)" 
-},
-{
-    "name" : "Mojito",
-    "imageURL": "https://images.pexels.com/photos/4021983/pexels-photo-4021983.jpeg",
-    "description":"The Mojito is one of the most popular rum cocktails served today, with a recipe known around the world. The origins of this classic drink can be traced to Cuba and the 16th-century cocktail El Draque. Named for Sir Francis Drake, the English sea captain and explorer who visited Havana in 1586, El Draque was composed of aguardiente (a cane-spirit precursor to rum), lime, mint and sugar. It was supposedly consumed for medicinal purposes, but it’s easy to believe that drinkers enjoyed its flavor and effects. Eventually, rum replaced aguardiente and the name was changed to the Mojito. It’s unclear exactly when this transpired, but the Mojito first appeared in cocktail literature in the 1932 edition of “Sloppy Joe’s Bar Cocktail Manual, a book from the famed Havana institution. (from Liquor.com)" 
-},
-{
-    "name" : "Old Fashioned",
-    "imageURL": "https://images.pexels.com/photos/19252758/pexels-photo-19252758/free-photo-of-whiskey-with-ice-cubes-and-orange-peel-in-lowball-glass.jpeg",
-    "description":"The Old Fashioned is arguably the most well-known whiskey cocktail in the world. Essentially just a slug of bourbon that’s been lightly sweetened with sugar and modified with a couple dashes of bitters, it’s dead simple to make, but within this basic template is a world of opinions and flavor. (from Liquor.com)" 
-}]
+    "cocktails": [
+        {
+            "name": "Whiskey Sour",
+            "imageURL": "https://images.pexels.com/photos/6542662/pexels-photo-6542662.jpeg",
+            "description": "Spirit, citrus and sugar are the trinity that combine to form the classic sour, one of the oldest types of cocktails. One of the most popular members of this group, the Whiskey Sour, has sated thirsty drinkers for more than one and a half centuries. It’s unknown exactly when the cocktail was conceived (or who was the architect), but its history stretches back to at least the administration of Abraham Lincoln, and the first printed recipe appeared circa 1862 in Jerry Thomas's famed book The Bar-Tenders Guide. (from Liquor.com)",
+            "steps": [
+                "Fill a cocktail shaker with ice.",
+                "Add 2 oz bourbon, 3/4 oz fresh lemon juice, and 1/2 oz simple syrup to the shaker.",
+                "Shake well until the mixture is chilled.",
+                "Strain into an old-fashioned glass filled with ice.",
+                "Garnish with a maraschino cherry and a lemon slice."
+            ]
+        },
+        {
+            "name": "Vodka Martini",
+            "imageURL": "https://images.pexels.com/photos/4786625/pexels-photo-4786625.jpeg",
+            "description": "Though cocktail purists may insist that gin is the only proper way to make a Martini, the Vodka Martini’s enduring popularity shows that not all agree. While gin will open added dimensions of aroma and flavor to create a more complex cocktail profile, using vodka as the base spirit will create a cleaner drink that allows the subtler notes of vermouth to more effortlessly come through. There’s no definitive origin story to who first popularized swapping gin for vodka in a classic Martini—the list of claims is too long to be worth going into detail—but the practice grew in the mid-20th century as efforts increased to grow vodka’s acceptance in the U.S. market. The spirit was often described to unfamiliar consumers as “white whiskey” or “flavorless gin,” and found an audience in those seeking cocktails with lighter profiles. (from Liquor.com)",
+            "steps": [
+                "Fill a mixing glass with ice.",
+                "Add 2 1/2 oz vodka and 1/2 oz dry vermouth to the mixing glass.",
+                "Stir gently until the mixture is chilled.",
+                "Strain into a chilled martini glass.",
+                "Garnish with a lemon twist or olive."
+            ]
+        },
+        {
+            "name": "Mojito",
+            "imageURL": "https://images.pexels.com/photos/4021983/pexels-photo-4021983.jpeg",
+            "description": "The Mojito is one of the most popular rum cocktails served today, with a recipe known around the world. The origins of this classic drink can be traced to Cuba and the 16th-century cocktail El Draque. Named for Sir Francis Drake, the English sea captain and explorer who visited Havana in 1586, El Draque was composed of aguardiente (a cane-spirit precursor to rum), lime, mint and sugar. It was supposedly consumed for medicinal purposes, but it’s easy to believe that drinkers enjoyed its flavor and effects. Eventually, rum replaced aguardiente and the name was changed to the Mojito. It’s unclear exactly when this transpired, but the Mojito first appeared in cocktail literature in the 1932 edition of “Sloppy Joe’s Bar Cocktail Manual, a book from the famed Havana institution. (from Liquor.com)",
+            "steps": [
+                "Muddle 6-8 fresh mint leaves with 1/2 oz simple syrup in a glass.",
+                "Add 3/4 oz fresh lime juice and 2 oz white rum to the glass.",
+                "Fill the glass with ice.",
+                "Top off with club soda.",
+                "Garnish with a mint sprig and a lime wedge."
+            ]
+        },
+        {
+            "name": "Old Fashioned",
+            "imageURL": "https://images.pexels.com/photos/19252758/pexels-photo-19252758/free-photo-of-whiskey-with-ice-cubes-and-orange-peel-in-lowball-glass.jpeg",
+            "description": "The Old Fashioned is arguably the most well-known whiskey cocktail in the world. Essentially just a slug of bourbon that’s been lightly sweetened with sugar and modified with a couple dashes of bitters, it’s dead simple to make, but within this basic template is a world of opinions and flavor. (from Liquor.com)",
+            "steps": [
+                "Place a sugar cube in an old-fashioned glass.",
+                "Saturate the sugar cube with 2-3 dashes of bitters.",
+                "Add a few dashes of plain water and muddle until the sugar is dissolved.",
+                "Fill the glass with ice cubes and add 2 oz bourbon.",
+                "Stir well and garnish with an orange slice and a cocktail cherry."
+            ]
+        }
+    ]
 }
