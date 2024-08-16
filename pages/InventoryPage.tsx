@@ -4,6 +4,10 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 
 const categoriesList = [
     {
+        name: 'Spirits',
+        image: 'https://npcddrdidmrwljkyxolk.supabase.co/storage/v1/object/public/Images/inventory/spirit',
+    },
+    {
         name: 'Wine',
         image: 'https://npcddrdidmrwljkyxolk.supabase.co/storage/v1/object/public/Images/inventory/wine',
     },
