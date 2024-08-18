@@ -27,7 +27,7 @@ const LoginScreen = ({ route, navigation }) => {
             <ScrollView contentContainerStyle={styles.container}>
                 <PageHeader
                     title="Login"
-                // message="Welcome back, you've been missed!"
+                
                 />
 
                 <View style={styles.inputContainer}>
@@ -43,12 +43,12 @@ const LoginScreen = ({ route, navigation }) => {
                         value={password}
                     />
                 </View>
+                
 
-                <View style={styles.forgotPasswordContainer}>
-                    <Text style={styles.forgotPasswordText}>
-                        Forgot Your Password?
-                    </Text>
-                </View>
+                <TextButton
+                        buttonText="Forgot Password?"
+                        onButtonPress={() => navigation.navigate("ForgotPassword")} 
+                    />
 
                 <LargeButton
                     buttonText="Sign In"
@@ -76,15 +76,8 @@ const styles = StyleSheet.create({
     inputContainer: {
         marginVertical: 30,
     },
-    forgotPasswordContainer: {
-        alignItems: 'flex-end',
-        marginVertical: 20,
-    },
-    forgotPasswordText: {
-        fontWeight: '500',
-        fontSize: 14,
-        color: "#000",
-    },
+    
+   
 });
 
 export default LoginScreen;

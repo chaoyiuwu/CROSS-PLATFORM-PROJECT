@@ -5,6 +5,7 @@ import LoginScreen from './screens/LoginScreen';
 import RegisterScreen from './screens/RegisterScreen';
 import LandingPage from './pages/LandingPage';
 import LoggedInMainPage from './screens/LoggedInMainPage';
+import ForgotPasswordScreen from './screens/ForgotPasswordScreen';
 
 const MainStack = createNativeStackNavigator();
 
@@ -29,8 +30,8 @@ function MainStackScreen() {
         name="Login"
         component={LoginScreen}
         options={{
-          headerLeft: () => null, // Removes the back button
-          gestureEnabled: false, // Disables the swipe back gesture
+          headerLeft: () => null, 
+          gestureEnabled: false, 
           headerShown: false,
         }}
       />
@@ -42,6 +43,14 @@ function MainStackScreen() {
           headerShown: false,
         }}
       />
+      <MainStack.Screen
+       name="ForgotPassword"
+       component={ForgotPasswordScreen}
+       options={{
+         title: 'Forgot Password?',  
+        headerShown: true,  
+  }}
+/>
     </MainStack.Navigator>
   );
 }
